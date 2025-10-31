@@ -31,11 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
 
     const bannerContainer = document.getElementById('banner-container');
-    
-    const reviewContainer = document.getElementById('review-container');
-    
-    const contactForm = document.getElementById('contact-form');
-    const formFeedback = document.getElementById('form-feedback');
+        
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
 
     const backToTopBtn = document.getElementById('back-to-top');
 
@@ -48,13 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop', text: 'Get Your Running Shoes' }
     ];
 
-    const reviews = [
-        { name: 'Alice', rating: 5, comment: 'Amazing products and fast delivery! Will definitely shop here again.', date: '2024-05-20' },
-        { name: 'Bob', rating: 4, comment: 'Good quality items, but the packaging could be better. Overall, a positive experience.', date: '2024-05-18' },
-        { name: 'Charlie', rating: 5, comment: 'I love the watch I bought. It looks even better in person. Highly recommended!', date: '2024-05-15' },
-        { name: 'Diana', rating: 3, comment: 'The product was okay, but it took a long time to arrive.', date: '2024-05-12' },
-        { name: 'Eve', rating: 5, comment: 'Customer service was excellent! They helped me with my order immediately.', date: '2024-05-10' }
-    ];
 
     const init = () => {
         fetchProducts();
@@ -75,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `));
         setupIntersectionObserver();
     };
+
 
     function setupEventListeners() {
         searchInput.addEventListener('input', () => filterAndRenderProducts());
@@ -345,23 +337,29 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => observer.observe(section));
     }
     
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        const name = contactForm.name.value.trim();
-        const email = contactForm.email.value.trim();
-        const message = contactForm.message.value.trim();
 
-        if (name && email && message) {
-            formFeedback.textContent = `Thank you, ${name}! Your message has been sent.`;
-            formFeedback.className = "text-center mt-4 font-semibold text-green-600";
-            contactForm.reset();
-        } else {
-            formFeedback.textContent = 'Please fill out all fields.';
-            formFeedback.className = "text-center mt-4 font-semibold text-red-500";
-        }
-        setTimeout(() => formFeedback.textContent = '', 3000);
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = contactForm.name.value.trim();
+    const email = contactForm.email.value.trim();
+    const message = contactForm.message.value.trim();
+
+    if(name && email && message) {
+      formFeedback.textContent = `Thank you, ${name}! Your message has been sent.`;
+      formFeedback.className = "text-center mt-4 font-semibold text-green-600 animate-fade-in";
+      contactForm.reset();
+    } else {
+      formFeedback.textContent = "Please fill out all fields.";
+      formFeedback.className = "text-center mt-4 font-semibold text-red-500 animate-fade-in";
     }
-    
+
+    setTimeout(() => {
+      formFeedback.textContent = "";
+    }, 4000);
+  });
+
+
     function handleScroll() {
         if (window.scrollY > 300) {
             backToTopBtn.classList.remove('hidden', 'opacity-0');
@@ -376,6 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     }
+    
 
     init();
+    
 });

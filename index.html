@@ -72,38 +72,118 @@
             </div>
         </section>
 
-        <!-- Review Section -->
-        <section id="reviews" class="mb-12 bg-white p-8 rounded-lg shadow-md">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Customer Reviews</h2>
-             <div class="relative overflow-hidden">
-                <div id="review-container" class="flex transition-transform duration-500 ease-in-out">
-                    <!-- Reviews will be injected here -->
-                </div>
-                <button id="prev-review-btn" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-800 p-2 rounded-full shadow-md"><i class="fas fa-chevron-left"></i></button>
-                <button id="next-review-btn" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-800 p-2 rounded-full shadow-md"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
+        
 
-        <!-- Contact Section -->
-        <section id="contact" class="mb-12 bg-white p-8 rounded-lg shadow-md">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Contact Us</h2>
-                <form id="contact-form" class="max-w-xl mx-auto">
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
-                        <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        
+    <!-- Reviews Section -->
+   <section id="reviews" class="py-16 bg-gradient-to-b from-blue-50 via-indigo-50 to-purple-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-900">What Our Customers Say</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-400">
+        <div class="flex items-center mb-4">
+          <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://picsum.photos/100/100?random=10" alt="Customer Avatar">
+          <div>
+            <p class="font-semibold text-lg text-gray-900">Sarah K.</p>
+            <div class="flex text-yellow-400 text-sm">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+            </div>
+          </div>
+        </div>
+       <p class="italic text-gray-700">
+        "White Gold Plated Princess ring is stunning! The craftsmanship is excellent and it feels very elegant. My partner loved it!"
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-400">
+        <div class="flex items-center mb-4">
+          <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://picsum.photos/100/100?random=11" alt="Customer Avatar">
+          <div>
+            <p class="font-semibold text-lg text-gray-900">James M.</p>
+            <div class="flex text-yellow-400 text-sm">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-gray-300" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+            </div>
+          </div>
+        </div>
+       <p class="italic text-gray-700">
+        "Mens Cotton Jacket fits perfectly and feels really comfortable. Warm, lightweight, and great quality for the price."
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-400">
+        <div class="flex items-center mb-4">
+          <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://picsum.photos/100/100?random=12" alt="Customer Avatar">
+          <div>
+            <p class="font-semibold text-lg text-gray-900">Meheraj Islam</p>
+            <div class="flex text-yellow-400 text-sm">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+              <svg class="w-4 h-4 fill-gray-300" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.966a1 1 0 0 0 .95.69h4.188c.969 0 1.371 1.24.588 1.81l-3.39 2.464a1 1 0 0 0-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.39-2.464a1 1 0 0 0-1.176 0l-3.39 2.464c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 0 0-.364-1.118L2.037 9.393c-.783-.57-.38-1.81.588-1.81h4.188a1 1 0 0 0 .95-.69l1.286-3.966z"/></svg>
+            </div>
+            </div>
+        </div>
+        <p class="italic text-gray-700">
+        "Fjallraven - Foldsack No. 1 Backpack is perfect for daily use and travel. Durable, lightweight, and stylish – exactly what I needed."
+        </p>
+      </div>          
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-20 px-6 md:px-12 rounded-3xl overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 opacity-30 backdrop-blur-lg"></div>
+
+            <div class="relative max-w-7xl mx-auto bg-white/50 rounded-3xl shadow-lg p-10">
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-blue-800">Get In Touch</h2>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Form -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-700">Send Us a Message</h3>
+                    <form id="contactForm" class="space-y-5 bg-white/30 backdrop-blur-md p-6 rounded-2xl shadow-md transition-all">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2 text-gray-800">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name"
+                            class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-200 transition">
                     </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2 text-gray-800">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com"
+                            class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-200 transition">
                     </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2 text-gray-800">Message</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."
+                                class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-200 transition"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-blue-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors">Send Message</button>
-                </form>
-                <div id="form-feedback" class="text-center mt-4 font-semibold"></div>
-        </section>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-400 to-indigo-400 text-white font-bold py-3 rounded-lg shadow-md hover:from-blue-500 hover:to-indigo-500 transition transform hover:scale-[1.02]">
+                        Send Message
+                    </button>
+
+                    <div id="formFeedback" class="text-center mt-4 font-semibold transition-all"></div>
+                    </form>
+                </div>
+
+                <div class="flex justify-center lg:justify-end">
+                    <img src="https://i.ibb.co.com/ymYC7NW3/fas.jpg" 
+                        alt="Contact Us" 
+                        class="rounded-2xl shadow-lg w-full max-w-md animate-fade-in">
+                </div>
+                    </div>
+                </div>
+    </section>
 
 </main>
     
@@ -137,39 +217,47 @@
     <div id="cart-overlay" class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 hidden"></div>
 
     <!-- About Us Section -->
-    <section id="about" class="bg-white p-8 rounded-lg shadow-md mb-16">
+  <section id="about" class="relative py-16 px-6 md:px-12 rounded-3xl overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 opacity-30 backdrop-blur-lg"></div>
+
+  <div class="relative max-w-6xl mx-auto bg-white/50 rounded-3xl shadow-lg p-10">
     <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">About SmartShop</h2>
 
-    <div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-5xl mx-auto mb-12">
-        <div class="text-center md:text-left">
+    <!-- Mission Section -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+      <div class="text-center md:text-left">
         <h3 class="text-2xl font-semibold text-gray-800 mb-3">Our Mission</h3>
         <p class="text-gray-700 leading-relaxed">
-            At <span class="font-semibold text-blue-600">SmartShop</span>, our mission is to make shopping smarter, faster, and more personalized.  
-            We combine technology with convenience to bring the best products and deals right to your fingertips.
+          At <span class="font-semibold text-blue-600">SmartShop</span>, our mission is to make shopping smarter, faster, and more personalized.  
+          We combine technology with convenience to bring the best products and deals right to your fingertips.
         </p>
-        </div>
+      </div>
     </div>
 
-    <!-- Team Section -->
+   <!-- Team Section -->
     <h3 class="text-2xl font-semibold text-gray-800 text-center mb-6">Meet Our Team</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        
-        <div class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
-            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member" 
-                class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Team Member 1 -->
+        <div class="bg-gradient-to-br from-blue-50 via-blue-100 to-purple-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
+            <img src="https://i.ibb.co.com/rSZxvQd/undefined.jpg" alt="Team Member" 
+                 class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
             <h4 class="text-lg font-semibold text-gray-800">Mohammad Shakwath</h4>
             <p class="text-blue-600 font-medium">Developer</p>
         </div>
 
-        <div class="bg-gray-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Team Member" 
-                class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
+        <!-- Team Member 2 -->
+        <div class="bg-gradient-to-br from-blue-50 via-blue-100 to-purple-50 rounded-lg p-6 shadow hover:shadow-lg transition-all text-center transform hover:scale-105 duration-300">
+            <img src="https://i.ibb.co.com/rSZxvQd/undefined.jpg" alt="Team Member" 
+                 class="w-24 h-24 rounded-full mx-auto mb-4 shadow-md">
             <h4 class="text-lg font-semibold text-gray-800">TamizUllah Kabbo</h4>
             <p class="text-blue-600 font-medium">Developer</p>
         </div>
 
     </div>
-    </section>
+</section>
+
+
 
     <!--  Footer Section -->
     <footer class="bg-gray-900 text-gray-200 py-16">
