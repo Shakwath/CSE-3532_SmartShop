@@ -109,19 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         productsToRender.forEach(product => {
             const productCard = document.createElement('div');
-            productCard.className = 'bg-white rounded-lg shadow-md overflow-hidden flex flex-col group';
+            productCard.className = 'bg-white rounded-lg shadow-md overflow-hidden flex flex-col group hover:shadow-2xl hover:scale-[1.02] transition duration-300';
             productCard.innerHTML = `
                 <div class="h-64 overflow-hidden">
-                    <img src="${product.image}" alt="${product.title}" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300">
+                    <img src="${product.image}" alt="${product.title}" class="w-full h-full object-contain p-4">
                 </div>
                 <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold text-gray-800 truncate" title="${product.title}">${product.title}</h3>
+                    <h3 class="text-lg text-wrap font-semibold text-gray-800 truncate" title="${product.title}">${product.title}</h3>
                     <div class="flex items-center my-2">
                         <div class="text-yellow-400">${'★'.repeat(Math.round(product.rating.rate))}${'☆'.repeat(5 - Math.round(product.rating.rate))}</div>
                         <span class="text-sm text-gray-500 ml-2">(${product.rating.count})</span>
                     </div>
-                    <p class="text-2xl font-bold text-blue-600 mt-auto">${product.price.toFixed(2)} BDT</p>
-                    <button data-product-id="${product.id}" class="add-to-cart-btn w-full mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">Add to Cart</button>
+                    <p class="text-2xl font-bold text-black-600 mt-auto">${product.price.toFixed(2)} BDT</p>
+                    <button data-product-id="${product.id}" class="add-to-cart-btn w-full mt-4 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors hover:scale-105 transition-transform duration-300">Add to Cart</button>
                 </div>
             `;
             productList.appendChild(productCard);
@@ -143,16 +143,16 @@ document.addEventListener('DOMContentLoaded', () => {
             button.className = `category-btn px-4 py-2 rounded-full text-sm font-semibold transition-colors`;
             button.textContent = category;
             if (category === 'All') {
-                 button.classList.add('bg-blue-500', 'text-white');
+                 button.classList.add('bg-gradient-to-r', 'from-yellow-400', 'via-amber-500', 'to-orange-500', 'text-white');
             } else {
                  button.classList.add('bg-gray-200', 'text-gray-700');
             }
             button.addEventListener('click', () => {
                 document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.classList.remove('bg-blue-500', 'text-white');
+                    btn.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'via-amber-500', 'to-orange-500', 'text-white');
                     btn.classList.add('bg-gray-200', 'text-gray-700');
                 });
-                button.classList.add('bg-blue-500', 'text-white');
+                button.classList.add('bg-gradient-to-r', 'from-yellow-400', 'via-amber-500', 'to-orange-500', 'text-white');
                 button.classList.remove('bg-gray-200', 'text-gray-700');
                 filterAndRenderProducts();
             });
