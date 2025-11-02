@@ -29,16 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-
-    const bannerContainer = document.getElementById('banner-container');
-    
-    const reviewContainer = document.getElementById('review-container');
-    
-    const contactForm = document.getElementById('contact-form');
-    const formFeedback = document.getElementById('form-feedback');
-
+    const bannerContainer = document.getElementById('banner-container'); 
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
     const backToTopBtn = document.getElementById('back-to-top');
-
     const API_URL = 'https://fakestoreapi.com/products';
 
     const banners = [
@@ -48,13 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop', text: 'Get Your Running Shoes' }
     ];
 
-    const reviews = [
-        { name: 'Alice', rating: 5, comment: 'Amazing products and fast delivery! Will definitely shop here again.', date: '2024-05-20' },
-        { name: 'Bob', rating: 4, comment: 'Good quality items, but the packaging could be better. Overall, a positive experience.', date: '2024-05-18' },
-        { name: 'Charlie', rating: 5, comment: 'I love the watch I bought. It looks even better in person. Highly recommended!', date: '2024-05-15' },
-        { name: 'Diana', rating: 3, comment: 'The product was okay, but it took a long time to arrive.', date: '2024-05-12' },
-        { name: 'Eve', rating: 5, comment: 'Customer service was excellent! They helped me with my order immediately.', date: '2024-05-10' }
-    ];
 
     const init = () => {
         fetchProducts();
@@ -75,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `));
         setupIntersectionObserver();
     };
+
 
     function setupEventListeners() {
         searchInput.addEventListener('input', () => filterAndRenderProducts());
@@ -133,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="text-sm text-gray-500 ml-2">(${product.rating.count})</span>
                     </div>
                     <p class="text-2xl font-bold text-blue-600 mt-auto">${product.price.toFixed(2)} BDT</p>
-                    <button data-product-id="${product.id}" class="add-to-cart-btn w-full mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">Add to Cart</button>
+                    <button data-product-id="${product.id}" class="add-to-cart-btn w-full mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">Add to Cart</button>
                 </div>
             `;
             productList.appendChild(productCard);
@@ -327,41 +315,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    function setupIntersectionObserver() {
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-blue-600', 'font-bold');
-                        if (link.getAttribute('href').substring(1) === entry.target.id) {
-                            link.classList.add('text-blue-600', 'font-bold');
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.5 });
+    // function setupIntersectionObserver() {
+    //     const sections = document.querySelectorAll('section');
+    //     const observer = new IntersectionObserver((entries) => {
+    //         entries.forEach(entry => {
+    //             if (entry.isIntersecting) {
+    //                 navLinks.forEach(link => {
+    //                     link.classList.remove('text-blue-600', 'font-bold');
+    //                     if (link.getAttribute('href').substring(1) === entry.target.id) {
+    //                         link.classList.add('text-blue-600', 'font-bold');
+    //                     }
+    //                 });
+    //             }
+    //         });
+    //     }, { threshold: 0.5 });
 
-        sections.forEach(section => observer.observe(section));
-    }
+    //     sections.forEach(section => observer.observe(section));
+    // }
     
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        const name = contactForm.name.value.trim();
-        const email = contactForm.email.value.trim();
-        const message = contactForm.message.value.trim();
+    navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('text-yellow-600', 'font-semibold', 'border-b-2', 'border-yellow-700'));
+      link.classList.add('text-yellow-600', 'font-semibold', 'border-b-2', 'border-yellow-700');
+    });
+  });
 
-        if (name && email && message) {
-            formFeedback.textContent = `Thank you, ${name}! Your message has been sent.`;
-            formFeedback.className = "text-center mt-4 font-semibold text-green-600";
-            contactForm.reset();
-        } else {
-            formFeedback.textContent = 'Please fill out all fields.';
-            formFeedback.className = "text-center mt-4 font-semibold text-red-500";
-        }
-        setTimeout(() => formFeedback.textContent = '', 3000);
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = contactForm.name.value.trim();
+    const email = contactForm.email.value.trim();
+    const message = contactForm.message.value.trim();
+
+    if(name && email && message) {
+      formFeedback.textContent = `Thank you, ${name}! Your message has been sent.`;
+      formFeedback.className = "text-center mt-4 font-semibold text-green-600 animate-fade-in";
+      contactForm.reset();
+    } else {
+      formFeedback.textContent = "Please fill out all fields.";
+      formFeedback.className = "text-center mt-4 font-semibold text-red-500 animate-fade-in";
     }
-    
+
+    setTimeout(() => {
+      formFeedback.textContent = "";
+    }, 4000);
+  });
+
+
     function handleScroll() {
         if (window.scrollY > 300) {
             backToTopBtn.classList.remove('hidden', 'opacity-0');
@@ -376,6 +376,8 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     }
+    
 
     init();
+    
 });
