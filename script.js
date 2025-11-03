@@ -107,25 +107,44 @@ document.addEventListener('DOMContentLoaded', () => {
             productList.innerHTML = `<p class="text-gray-500 col-span-full text-center">No products found.</p>`;
             return;
         }
+       
         productsToRender.forEach(product => {
-            const productCard = document.createElement('div');
-            productCard.className = 'bg-white rounded-lg shadow-md overflow-hidden flex flex-col group hover:shadow-2xl hover:scale-[1.02] transition duration-300';
-            productCard.innerHTML = `
-                <div class="h-64 overflow-hidden">
-                    <img src="${product.image}" alt="${product.title}" class="w-full h-full object-contain p-4">
+        const productCard = document.createElement('div');
+        productCard.className = `
+            bg-gradient-to-br from-yellow-50 via-amber-100 to-yellow-200 
+            text-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col group 
+            hover:shadow-lg hover:scale-[1.02] transition duration-300
+        `;
+
+        productCard.innerHTML = `
+            <div class="h-64 overflow-hidden bg-white/60">
+            <img src="${product.image}" alt="${product.title}" 
+                class="w-full h-56 sm:h-64 object-contain p-4">
+            </div>
+            <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold truncate" title="${product.title}">
+                ${product.title}
+            </h3>
+            <div class="flex items-center my-2">
+                <div class="text-yellow-500">
+                ${'★'.repeat(Math.round(product.rating.rate))}${'☆'.repeat(5 - Math.round(product.rating.rate))}
                 </div>
-                <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg text-wrap font-semibold text-gray-800 truncate" title="${product.title}">${product.title}</h3>
-                    <div class="flex items-center my-2">
-                        <div class="text-yellow-400">${'★'.repeat(Math.round(product.rating.rate))}${'☆'.repeat(5 - Math.round(product.rating.rate))}</div>
-                        <span class="text-sm text-gray-500 ml-2">(${product.rating.count})</span>
-                    </div>
-                    <p class="text-2xl font-bold text-black-600 mt-auto">${product.price.toFixed(2)} BDT</p>
-                    <button data-product-id="${product.id}" class="add-to-cart-btn w-full mt-4 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-600 transition-colors hover:scale-105 transition-transform duration-300">Add to Cart</button>
-                </div>
-            `;
-            productList.appendChild(productCard);
+                <span class="text-sm text-gray-600 ml-2">(${product.rating.count})</span>
+            </div>
+            <p class="text-2xl font-bold mt-auto">${product.price.toFixed(2)} BDT</p>
+            <button 
+                data-product-id="${product.id}" 
+                class="add-to-cart-btn w-full mt-4 
+                    bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500
+                    text-white font-bold py-2 px-4 rounded-lg 
+                    hover:opacity-90 hover:scale-105 transition-transform duration-300">
+                Add to Cart
+            </button>
+            </div>
+        `;
+        productList.appendChild(productCard);
         });
+
 
         document.querySelectorAll('.add-to-cart-btn').forEach(button => {
             button.addEventListener('click', (e) => {
