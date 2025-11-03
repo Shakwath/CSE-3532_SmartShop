@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let products = [];
     let cart = [];
-    // Initialize balance from localStorage or default to 2000
-    let userBalance = parseFloat(localStorage.getItem('userBalance')) || 2000; 
+    let userBalance = parseFloat(localStorage.getItem('userBalance')) || 2000;
 
     const productList = document.getElementById('product-list');
     const loadingSpinner = document.getElementById('loading-spinner');
@@ -47,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'https://fakestoreapi.com/products';
 
     const reviews = [
-        { name: 'Alice Johnson', rating: 5, comment: 'Amazing products and fast delivery! Will definitely shop here again. The quality exceeds expectations.', date: '2025-05-20' },
-        { name: 'Bob Smith', rating: 4, comment: 'Good quality items, but the packaging could be better. Overall, a positive experience, and the prices are fair.', date: '2025-05-18' },
-        { name: 'Charlie Davis', rating: 5, comment: 'I love the watch I bought. It looks even better in person. Highly recommended! The checkout process was smooth.', date: '2025-05-15' },
-        { name: 'Diana Lee', rating: 3, comment: 'The product was okay, but it took a long time to arrive. Hope delivery speed improves next time.', date: '2025-05-12' },
-        { name: 'Eve Martinez', rating: 5, comment: 'Customer service was excellent! They helped me with my order immediately. Fantastic store!', date: '2025-05-10' }
+        { name: 'Alice', rating: 5, comment: 'Amazing products and fast delivery! Will definitely shop here again.', date: '2024-05-20' },
+        { name: 'Bob', rating: 4, comment: 'Good quality items, but the packaging could be better. Overall, a positive experience.', date: '2024-05-18' },
+        { name: 'Charlie', rating: 5, comment: 'I love the watch I bought. It looks even better in person. Highly recommended!', date: '2024-05-15' },
+        { name: 'Diana', rating: 3, comment: 'The product was okay, but it took a long time to arrive.', date: '2024-05-12' },
+        { name: 'Eve', rating: 5, comment: 'Customer service was excellent! They helped me with my order immediately.', date: '2024-05-10' }
     ];
 
     // --- Banner Carousel Logic (unchanged) ---
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateBalanceDisplay();
         setupEventListeners();
         renderReviews();
-        setupReviewCarousel();
+        setupReviewCarousel(); // NEW: Setup the sliding reviews
         setupIntersectionObserver();
     };
 
@@ -112,17 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('scroll', handleScroll);
         backToTopBtn.addEventListener('click', scrollToTop);
-
-        // Hide mobile menu when a link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
     }
     
+    // ... (fetchProducts and renderProducts functions remain the same) ...
 
     async function fetchProducts() {
         try {
@@ -256,30 +247,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const generateStars = (rating) => {
                 let stars = '';
                 for (let i = 1; i <= 5; i++) {
-                    // Increased star size to text-lg
                     const starClass = i <= rating ? 'fas fa-star' : 'far fa-star';
-                    stars += `<i class="${starClass} text-yellow-500 text-lg"></i>`; 
+                    stars += `<i class="${starClass} text-yellow-400 text-sm"></i>`;
                 }
                 return stars;
             };
 
-            // FIX: Added w-full and flex-shrink-0 for sliding. Added max-w-2xl and h-full for better sizing
+            // Each item is now w-full and flex-shrink-0 for sliding
             return `
                 <div class="w-full flex-shrink-0 p-4 sm:p-0"> 
-                    <div class="bg-white p-6 rounded-xl shadow-xl border-t-4 border-yellow-400 max-w-2xl mx-auto h-full flex flex-col justify-between">
-                        <div class="flex items-start mb-4">
-                            <img class="w-16 h-16 rounded-full object-cover mr-4 shadow-md" src="https://picsum.photos/100/100?random=${100 + index}" alt="${r.name} Avatar">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-400">
+                        <div class="flex items-center mb-4">
+                            <img class="w-12 h-12 rounded-full object-cover mr-4" src="https://picsum.photos/100/100?random=${100 + index}" alt="${r.name} Avatar">
                             <div>
-                                <p class="font-bold text-xl text-gray-800">${r.name}</p>
-                                <div class="flex items-center text-lg space-x-0.5">
+                                <p class="font-semibold text-lg text-gray-800">${r.name}</p>
+                                <div class="flex items-center">
                                     ${generateStars(r.rating)}
                                 </div>
                             </div>
                         </div>
-                        <p class="italic text-gray-700 text-lg flex-grow">
+                        <p class="italic text-gray-700">
                             "${r.comment}"
                         </p>
-                        <p class="text-sm text-gray-400 mt-4 text-right">Reviewed on ${r.date}</p>
+                        <p class="text-xs text-gray-400 mt-2 text-right">${r.date}</p>
                     </div>
                 </div>
             `;
@@ -412,10 +402,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="flex-grow">
                         <p class="font-semibold text-sm text-wrap truncate">${item.title}</p>
                         <p class="text-gray-500 text-xs">${item.price.toFixed(2)} BDT</p>
-                        <div class="flex items-center mt-1">
-                            <button class="decrease-qty w-6 h-6 bg-gray-200 rounded decrease-qty">-</button>
+                         <div class="flex items-center mt-1">
+                            <button class="decrease-qty w-6 h-6 bg-gray-200 rounded">-</button>
                             <span class="px-2">${item.quantity}</span>
-                            <button class="increase-qty w-6 h-6 bg-gray-200 rounded increase-qty">+</button>
+                            <button class="increase-qty w-6 h-6 bg-gray-200 rounded">+</button>
                         </div>
                     </div>
                     <button class="remove-item text-red-500 hover:text-red-700 ml-4 fas fa-trash"></button>
@@ -455,51 +445,31 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
     }
     
-    /**
-     * FIX: Use rootMargin to highlight the section that is closest to the center of the viewport (ignoring the header).
-     */
     function setupIntersectionObserver() {
-        // Only observe sections with nav links. Use the dummy anchor for 'Home'.
-        const sections = document.querySelectorAll('#home-anchor, #products, #reviews, #contact'); 
-        
+        const sections = document.querySelectorAll('main section');
         const observer = new IntersectionObserver((entries) => {
-            let activeSectionId = null;
-
-            // Iterate backwards to prioritize sections higher up (closer to the top of the viewport)
-            for (let i = entries.length - 1; i >= 0; i--) {
-                const entry = entries[i];
-                // Check if the element is currently intersecting (even partially)
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // This section is currently the one closest to the observer's root (the center of the viewport due to rootMargin)
-                    activeSectionId = entry.target.id;
-                    break; // Highlight the highest one and stop
-                }
-            }
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-green-600', 'font-bold');
-                link.classList.add('text-black-600'); 
-                
-                // Check if the link's href matches the current active section ID
-                if (link.getAttribute('href').substring(1) === activeSectionId) {
-                    link.classList.add('text-green-600', 'font-bold');
-                    link.classList.remove('text-black-600');
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-green-600', 'font-bold', 'border-b-2', 'border-green-600'); 
+                        
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('text-green-600', 'font-bold', 'border-b-2', 'border-green-600');
+                        }
+                    });
                 }
             });
-
-        }, { 
-            // rootMargin: '-100px 0px -60% 0px' means the intersection area starts 100px from the top (below header) 
-            // and ends 60% up from the bottom, effectively highlighting the section currently occupying the top part of the visible screen.
-            // Using -50% 0px -50% 0px (centered observer) is more robust for general highlighting.
-            rootMargin: '-50% 0px -50% 0px', 
-            threshold: 0 
-        });
+        }, { threshold: 0.5 });
 
         sections.forEach(section => observer.observe(section));
     }
     
-    // FIX: Removed old click-based active state logic here as the Intersection Observer handles it dynamically.
-    // The link styling on click is not needed and interferes with the scrolling detection.
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.forEach(l => l.classList.remove('text-green-600', 'font-semibold', 'border-b-2', 'border-green-700'));
+            link.classList.add('text-green-600', 'font-semibold', 'border-b-2', 'border-green-700');
+        });
+    });
 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();

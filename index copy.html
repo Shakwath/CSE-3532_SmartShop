@@ -10,10 +10,10 @@
 </head>
 <body class="bg-gray-100 font-inter">
     <header class="sticky z-50 bg-gradient-to-b from-white/80 to-white/50 backdrop-blur-md shadow-md transition-all duration-300 top-0">
-        <nav class="container glassContainer mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home-anchor" class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-transparent bg-clip-text">🛒SmartShop </a>
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-transparent bg-clip-text">🛒SmartShop </a>
             <div class="hidden md:flex items-center space-x-6">
-            <a href="#home-anchor" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Home</a>
+            <a href="#home" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Home</a>
             <a href="#products" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Products</a>
             <a href="#reviews" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Reviews</a>
             <a href="#contact" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Contact</a>
@@ -32,13 +32,13 @@
                     <i class="fas fa-shopping-cart text-2xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                 </button>
-                    <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                   <button id="mobile-menu-btn" class="md:hidden text-gray-600">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </nav>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <a href="#home-anchor" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="#home" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Home</a>
             <a href="#products" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Products</a>
             <a href="#reviews" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Reviews</a>
             <a href="#contact" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Contact</a>
@@ -46,8 +46,6 @@
     </header>
 
     <main class="container mx-auto px-6 py-8">
-        <div id="home-anchor" class="absolute top-0 -mt-20"></div> 
-        
         <div class="relative w-full overflow-hidden rounded-2xl shadow-lg">
         <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
             <img src='https://i.ibb.co.com/b5RDZ9L1/pic-2.jpg'
@@ -58,16 +56,14 @@
                 class="w-full h-64 md:h-96 object-cover flex-shrink-0" alt="Banner 3">
             <img src="https://i.ibb.co.com/CsNp1bsx/pic-3.jpg"
                 class="w-full h-64 md:h-96 object-cover flex-shrink-0" alt="Banner 4">
-               
+            
         </div>
 
         <button id="prevBtn" 
-            class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition">
-            <i class="fas fa-chevron-left"></i>
+            class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition"> <
         </button>
         <button id="nextBtn" 
-            class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition">
-            <i class="fas fa-chevron-right"></i>
+            class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition"> >
         </button>
 
         <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
@@ -77,7 +73,7 @@
             <span class="dot w-3 h-3 rounded-full bg-white/70 cursor-pointer"></span>
         </div>
         </div>
-        <section id="products" class="m-12 pt-16 -mt-8">
+        <section id="products" class="m-12">
             <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Our Products</h2>
             
             <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
@@ -97,14 +93,14 @@
             </div>
             </div>
 
-        </section>
+    </section>
         
-    <section id="reviews" class="py-16 pt-32 -mt-16">
+    <section id="reviews" class="py-16">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-800">What Our Customers Say</h2>
-        
+       
                     <div class="relative w-full overflow-hidden">
-                        <div id="reviews-container" class="flex flex-nowrap py-6 duration-500 ease-in-out items-stretch"> 
+                        <div id="reviews-container" class="flex justify-center py-6 duration-500 ease-in-out">
                     </div>
                         <button id="prev-review-btn" 
                             class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/50 hover:bg-white text-gray-700 rounded-full p-2 shadow-md transition z-10">
@@ -120,7 +116,7 @@
             </div>
     </section>
 
-    <section id="contact" class="relative py-6 md:px-12 rounded-3xl overflow-hidden pt-32 -mt-16">
+    <section id="contact" class="relative py-6 md:px-12 rounded-3xl overflow-hidden">
             <div class="relative mx-auto bg-white/50 rounded-3xl shadow-lg p-10">
                 <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-800">Get In Touch</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -142,7 +138,7 @@
                         <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."
                                 class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition"></textarea>
                     </div>
-                        <div class="flex gap-x-4 sm:col-span-2">
+                       <div class="flex gap-x-4 sm:col-span-2">
                     <div class="flex h-6 items-center">
                     <div class="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
                     <span class="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5"></span>
@@ -201,11 +197,11 @@
     
             </div>
         </section>
-        
+    
         
     </main>
     <footer class="bg-gray-900 text-gray-200 py-16">
-        <div class="p-6 rounded-lg mb-16 text-center">
+        <div class="bg-gray-800 p-6 rounded-lg mb-16 text-center">
         <h3 class="text-2xl font-semibold mb-2 text-white">Subscribe to Our Newsletter</h3>
         <p class="text-gray-400 mb-4">Get updates on new arrivals and exclusive offers!</p>
         <form class="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-md mx-auto">
