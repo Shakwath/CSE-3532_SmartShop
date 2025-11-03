@@ -10,7 +10,7 @@
 </head>
 <body class="bg-gray-100 font-inter">
     <header class="sticky z-50 bg-gradient-to-b from-white/80 to-white/50 backdrop-blur-md shadow-md transition-all duration-300 top-0">
-        <nav class="container glassContainer mx-auto px-6 py-4 flex justify-between items-center">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home-anchor" class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-transparent bg-clip-text">🛒SmartShop </a>
             <div class="hidden md:flex items-center space-x-6">
             <a href="#home-anchor" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Home</a>
@@ -18,8 +18,8 @@
             <a href="#reviews" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Reviews</a>
             <a href="#contact" class="nav-link text-black-600 hover:text-green-600 transition-colors duration-200">Contact</a>
             </div>
-            <div class="hidden md:flex items-center space-x-4">
-                <div class="flex items-center space-x-2 p-2 rounded-lg bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-300 text-amber-900">
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-2 p-2 rounded-lg bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-300 text-amber-900">
                     <span class="font-semibold">Balance:</span>
                     <span id="user-balance" class="font-bold">1000 BDT</span>
                    <button id="add-money-btn" title="Add 1000 BDT"
@@ -42,6 +42,17 @@
             <a href="#products" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Products</a>
             <a href="#reviews" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Reviews</a>
             <a href="#contact" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100">Contact</a>
+            <div class="block pb-3 px-6 text-sm text-gray-600 hover:bg-gray-100">
+                <div class="flex items-center space-x-2 p-2 rounded-lg bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-300 text-amber-900">
+                    <span class="font-semibold">Balance:</span>
+                    <span id="user-balance" class="font-bold">1000 BDT</span>
+                   <button id="add-money-btn" title="Add 1000 BDT"
+                    class="w-6 h-6 bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 text-white rounded-full flex items-center justify-center hover:from-yellow-500 hover:via-amber-600 hover:to-orange-600 transition-all">
+                    +
+                    </button>
+    
+                </div>
+            </div>
         </div>
     </header>
 
@@ -126,15 +137,15 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800">Send Us a Message</h3>
-                    <form id="contactForm" class="space-y-5 bg-white/30 backdrop-blur-md p-6 rounded-2xl shadow-md transition-all">
+                    <form id="contactForm" class="space-y-5 backdrop-blur-md p-6 rounded-2xl transition-all">
                     <div>
                         <label for="name" class="block text-sm font-medium mb-2 text-gray-800">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your full name"
+                        <input type="text" id="name" name="name" required placeholder="Enter your name..."
                             class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition">
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium mb-2 text-gray-800">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="you@example.com"
+                        <input type="email" id="email" name="email" required placeholder="Enter your mail..."
                             class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition">
                     </div>
                     <div>
@@ -142,17 +153,9 @@
                         <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."
                                 class="w-full p-3 rounded-lg border border-gray-300 bg-white/70 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition"></textarea>
                     </div>
-                        <div class="flex gap-x-4 sm:col-span-2">
+                    <div class="flex gap-x-4 sm:col-span-2">
                     <div class="flex h-6 items-center">
-                    <div class="group relative inline-flex w-8 shrink-0 rounded-full bg-gray-200 p-px inset-ring inset-ring-gray-900/5 outline-offset-2 outline-indigo-600 transition-colors duration-200 ease-in-out has-checked:bg-indigo-600 has-focus-visible:outline-2">
-                    <span class="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5"></span>
-                        <input id="agree-to-policies" type="checkbox" name="agree-to-policies" aria-label="Agree to policies" class="absolute inset-0 appearance-none focus:outline-hidden" />
                     </div>
-                    </div>
-                    <label for="agree-to-policies" class="text-sm/6 text-gray-600">
-                    By selecting this, you agree to our
-                    <a href="#" class="font-semibold whitespace-nowrap text-indigo-600">privacy policy</a>.
-                    </label>
                 </div>
                 <button type="submit" 
                     class="w-full bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-400 text-white font-bold py-3 rounded-lg shadow-md hover:from-yellow-500 hover:via-amber-600 hover:to-orange-500 transition transform hover:scale-[1.02]">
@@ -161,7 +164,7 @@
                     <div id="formFeedback" class="text-center mt-4 font-semibold transition-all"></div>
                     </form>
                 </div>
-                <div class="flex justify-center lg:justify-end">
+                <div class="hidden md:flex justify-center lg:justify-end">
                     <img src="https://i.ibb.co.com/ymYC7NW3/fas.jpg" 
                         alt="Contact Us" 
                         class="rounded-2xl shadow-lg w-full max-w-md animate-fade-in">
@@ -217,7 +220,14 @@
         </form>
         </div>
         <div class="mt-10 text-center border-t border-gray-700 pt-6">
-        <p class="text-gray-500 text-sm">&copy; 2025 SmartShop. All rights reserved.</p>
+            <div class="container mx-auto px-6 text-center">
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#home-anchor" class="hover:text-blue-400">Home</a>
+                    <a href="#products" class="hover:text-blue-400">Products</a>
+                    <a href="#contact" class="hover:text-blue-400">Contact</a>
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 SmartShop. All rights reserved.</p>
         </div>
     </div>
     </footer>
@@ -258,7 +268,6 @@
         </div>
     </aside>
     <div id="cart-overlay" class="fixed top-0 left-0 w-full h-full bg-black/50 z-40 hidden"></div>
-
     
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-500 text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-600 transition-opacity opacity-0 hidden">
         <i class="fas fa-arrow-up"></i>
