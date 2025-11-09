@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     let products = [];
     let cart = [];
-    // Initialize balance from localStorage or default to 2000
     let userBalance = parseFloat(localStorage.getItem('userBalance')) || 2000; 
 
     const productList = document.getElementById('product-list');
@@ -37,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = carousel.children;
     const dots = document.querySelectorAll('.dot');
     
-    // TARGET ELEMENTS FOR REVIEWS
     const reviewContainer = document.getElementById('reviews-container');
     const prevReviewBtn = document.getElementById('prev-review-btn');
     const nextReviewBtn = document.getElementById('next-review-btn');
@@ -54,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Eve Martinez', rating: 5, comment: 'Customer service was excellent! They helped me with my order immediately. Fantastic store!', date: '2025-05-10' }
     ];
 
-    // --- Banner Carousel Logic (unchanged) ---
     let index = 0;
     const total = slides.length;
     function updateCarousel() {
@@ -84,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     }, 4000);
     updateCarousel();
-    // --- End Banner Carousel Logic ---
 
     const init = () => {
         fetchProducts();
@@ -113,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', handleScroll);
         backToTopBtn.addEventListener('click', scrollToTop);
 
-        // Hide mobile menu when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (!mobileMenu.classList.contains('hidden')) {
@@ -245,25 +240,19 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProducts(filteredProducts);
     }
 
-    /**
-     * Renders the customer reviews, each wrapped for full-width sliding.
-     */
     function renderReviews() {
         if (!reviewContainer) return;
         
         reviewContainer.innerHTML = reviews.map((r, index) => {
-            // Generates star icons using Font Awesome classes
             const generateStars = (rating) => {
                 let stars = '';
                 for (let i = 1; i <= 5; i++) {
-                    // Increased star size to text-lg
                     const starClass = i <= rating ? 'fas fa-star' : 'far fa-star';
                     stars += `<i class="${starClass} text-yellow-500 text-lg"></i>`; 
                 }
                 return stars;
             };
 
-            // FIX: Added w-full and flex-shrink-0 for sliding. Added max-w-2xl and h-full for better sizing
             return `
                 <div class="w-full flex-shrink-0 p-4 sm:p-0"> 
                     <div class="bg-white p-6 rounded-xl shadow-xl border-t-4 border-yellow-400 max-w-2xl mx-auto h-full flex flex-col justify-between">
@@ -286,9 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    /**
-     * Controls the sliding functionality for the reviews section.
-     */
     function setupReviewCarousel() {
         if (!reviewContainer) return;
 
@@ -296,18 +282,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalReviews = reviewItems.length;
         let currentReviewIndex = 0;
         
-        // 1. Render Navigation Dots
         reviewDotsContainer.innerHTML = Array.from({ length: totalReviews }).map((_, i) =>
             `<span class="review-dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer transition-colors duration-300" data-index="${i}"></span>`
         ).join('');
         const reviewDots = reviewDotsContainer.querySelectorAll('.review-dot');
 
         const updateReviewCarousel = () => {
-            // Calculate the transform position (each item is 100% wide)
             const offset = -currentReviewIndex * 100;
             reviewContainer.style.transform = `translateX(${offset}%)`;
 
-            // Update dots state
             reviewDots.forEach((dot, i) => {
                 dot.classList.toggle('bg-yellow-400', i === currentReviewIndex);
                 dot.classList.toggle('bg-gray-300', i !== currentReviewIndex);
@@ -324,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateReviewCarousel();
         };
 
-        // 2. Attach Event Listeners
         prevReviewBtn.addEventListener('click', prevReview);
         nextReviewBtn.addEventListener('click', nextReview);
 
@@ -335,14 +317,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // 3. Auto-slide (Optional)
         setInterval(nextReview, 5000);
 
-        // Initial setup
         updateReviewCarousel();
     }
-    
-    // ... (rest of the functions remain the same) ...
 
     function toggleCart() {
         cartSidebar.classList.toggle('translate-x-full');
@@ -455,24 +433,17 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
     }
     
-    /**
-     * FIX: Use rootMargin to highlight the section that is closest to the center of the viewport (ignoring the header).
-     */
     function setupIntersectionObserver() {
-        // Only observe sections with nav links. Use the dummy anchor for 'Home'.
         const sections = document.querySelectorAll('#home-anchor, #products, #reviews, #contact'); 
         
         const observer = new IntersectionObserver((entries) => {
             let activeSectionId = null;
 
-            // Iterate backwards to prioritize sections higher up (closer to the top of the viewport)
             for (let i = entries.length - 1; i >= 0; i--) {
                 const entry = entries[i];
-                // Check if the element is currently intersecting (even partially)
                 if (entry.isIntersecting) {
-                    // This section is currently the one closest to the observer's root (the center of the viewport due to rootMargin)
                     activeSectionId = entry.target.id;
-                    break; // Highlight the highest one and stop
+                    break;
                 }
             }
             
@@ -480,7 +451,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.remove('text-green-600', 'font-bold');
                 link.classList.add('text-black-600'); 
                 
-                // Check if the link's href matches the current active section ID
                 if (link.getAttribute('href').substring(1) === activeSectionId) {
                     link.classList.add('text-green-600', 'font-bold');
                     link.classList.remove('text-black-600');
@@ -488,18 +458,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         }, { 
-            // rootMargin: '-100px 0px -60% 0px' means the intersection area starts 100px from the top (below header) 
-            // and ends 60% up from the bottom, effectively highlighting the section currently occupying the top part of the visible screen.
-            // Using -50% 0px -50% 0px (centered observer) is more robust for general highlighting.
             rootMargin: '-50% 0px -50% 0px', 
             threshold: 0 
         });
 
         sections.forEach(section => observer.observe(section));
     }
-    
-    // FIX: Removed old click-based active state logic here as the Intersection Observer handles it dynamically.
-    // The link styling on click is not needed and interferes with the scrolling detection.
 
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
